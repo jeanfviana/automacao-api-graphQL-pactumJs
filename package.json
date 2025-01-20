@@ -1,0 +1,16 @@
+{
+  "name": "desafio",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "jeanviana",
+  "license": "ISC",
+  "description": "Teste de Api",
+  "devDependencies": {
+    "mocha": "^11.0.1",
+    "pactum": "^3.7.6"
+  }
+}
