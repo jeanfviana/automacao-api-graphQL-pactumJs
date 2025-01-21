@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha ./test/**/*.test.js"
   },
   "keywords": [],
   "author": "jeanviana",
@@ -12,5 +12,8 @@
   "devDependencies": {
     "mocha": "^11.0.1",
     "pactum": "^3.7.6"
+  },
+  "dependencies": {
+    "pactum-matchers": "^1.1.7"
   }
 }
