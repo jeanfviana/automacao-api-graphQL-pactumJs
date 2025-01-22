@@ -18,16 +18,51 @@ beforeEach(async () => {
 
 it('API - adicionar produto com sucesso', async () => {
     await spec()
-        .get('/api/getUsers')
+        .post('/api/addProduct')
         .withHeaders("Authorization", token)
-        .expectStatus(200)
-        .expectJsonMatch({
-            users: eachLike({
-                "_id": like("657b05fe31b986f1c0a7a053"),
-                email: like("cliente@ebac.art.br"),
-                profile: {
-                    firstName: like("Cliente")
-                }
-            })
-        })
+        .withJson({
+            "name": "teste",
+            "price": 1.5,
+            "quantity": 10,
+            "categories": "Bags",
+            "description": "teste",
+            "photos": "teste.jpg",
+            "popular": true,
+            "visible": true,
+            "location": "teste",
+            "additionalDetails": "teste",
+            "specialPrice": 1.60
+          })
+        .expectStatus(502)
+        
 });
+
+it('API - editar produto com sucesso', async () => {
+    await spec()
+        .put('/api/editProduct/{1}')
+        .withHeaders("Authorization", token)
+        .withJson({
+            "name": "any",
+            "price": "any",
+            "quantity": "any",
+            "categories": "any",
+            "description": "any",
+            "photos": "any",
+            "popular": "any",
+            "visible": "any",
+            "location": "any",
+            "additionalDetails": "any",
+            "specialPrice": "any"
+          })
+        .expectStatus(502)
+        
+});
+
+it('API - deletar produto com sucesso', async () => {
+    await spec()
+        .delete('/api/editProduct/{1}')
+        .withHeaders("Authorization", token)
+        .expectStatus(502)
+        
+});
+

@@ -3,7 +3,11 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "mocha ./test/**/*.test.js"
+    "test": "mocha ./test/**/*.test.js",
+    "test:gql": "mocha ./test/graphql/**/*.test.js",
+    "test:rest": "mocha ./test/api/**/*.test.js",
+    "test:contractProvider": "mocha ./test/contract/categoriaProvider.test.js",
+    "test:contractConsumer": "mocha ./test/contract/categoriaConsumer.test.js"
   },
   "keywords": [],
   "author": "jeanviana",
@@ -14,6 +18,7 @@
     "pactum": "^3.7.6"
   },
   "dependencies": {
+    "pactum-flow-plugin": "^0.1.4",
     "pactum-matchers": "^1.1.7"
   }
 }

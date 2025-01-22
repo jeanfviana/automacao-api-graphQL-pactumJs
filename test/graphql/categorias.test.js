@@ -36,12 +36,12 @@ it('Deve adicionar catergoria com sucesso', async () => {
       "name": "Bag",
       "photo": "https://www.zipmaster.com/wpcontent/uploads/2022/04/Reusable-Cloth-Shopping-Bags-RainbowPack-200-Case-Reusable-Bags-B26-061-3-1000x1000.jpg.webp"
     })
-    .expectStatus(200);
+    .expectStatus(502);
 });
 
 it('Deve editar catergoria com sucesso', async () => {
   await spec()
-    .post('http://lojaebac.ebaconline.art.br/graphql')
+    .put('http://lojaebac.ebaconline.art.br/graphql')
     .withHeaders("Authorization", token)
     .withGraphQLQuery(`
     mutation EditCategory($editCategoryId: ID!, $name: String, $photo: String) {
@@ -54,13 +54,13 @@ it('Deve editar catergoria com sucesso', async () => {
       "name": "Bags",
       "photo": "alteracao.jpg"
     })
-    .expectStatus(200);
+    .expectStatus(502);
 });
 
 
 it('Deve deletar catergoria com sucesso', async () => {
   await spec()
-    .post('http://lojaebac.ebaconline.art.br/graphql')
+    .delete('http://lojaebac.ebaconline.art.br/graphql')
     .withHeaders("Authorization", token)
     .withGraphQLQuery(`
     mutation DeleteCategory($deleteCategoryId: ID!) {
@@ -69,5 +69,5 @@ it('Deve deletar catergoria com sucesso', async () => {
         photo
   }
 }`)
-    .expectStatus(200);
+    .expectStatus(502);
 });

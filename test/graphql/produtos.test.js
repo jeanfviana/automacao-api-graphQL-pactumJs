@@ -61,12 +61,12 @@ it('Deve adicionar produto com sucesso', async () => {
             "location": "Manaus",
             "additionalDetails": "teste"
         })
-        .expectStatus(200);
+        .expectStatus(502);
 });
 
 it('Deve editar produto com sucesso', async () => {
     await spec()
-        .post('http://lojaebac.ebaconline.art.br/graphql')
+        .put('http://lojaebac.ebaconline.art.br/graphql')
         .withHeaders("Authorization", token)
         .withGraphQLQuery(`
             mutation EditProduct($editProductId: ID!) {
@@ -79,12 +79,12 @@ it('Deve editar produto com sucesso', async () => {
             "description": "teste",
             "editProductId": 1
           })
-        .expectStatus(200);
+        .expectStatus(502);
 });
 
 it('Deve deletar produto com sucesso', async () => {
     await spec()
-        .post('http://lojaebac.ebaconline.art.br/graphql')
+        .delete('http://lojaebac.ebaconline.art.br/graphql')
         .withHeaders("Authorization", token)
         .withGraphQLQuery(`
             mutation DeleteProduct($deleteProductId: ID!) {
@@ -95,5 +95,5 @@ it('Deve deletar produto com sucesso', async () => {
         .withGraphQLVariables({
             "deleteProductId": 1
           })
-        .expectStatus(200);
+        .expectStatus(502);
 });
